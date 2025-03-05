@@ -1,0 +1,54 @@
+<html>
+<head>
+    <link rel="stylesheet" href="practica6.css">
+</head>
+<body>
+    <div class="slider-container">
+        <div>
+            <img class="slide-img" src="img/img1.jpg">
+        </div>
+    </div>
+    <div>
+    <div class="BOTONES">
+        <button class="botonanterior">ANTERIOR</button>
+        <button class="botonsig">SIGUIENTE</button>
+    </div>    
+
+<script>
+    arreglo=["Img/img1.jpg","Img/img2.jpg","Img/img3.jpg","Img/img4.jpg"];
+    contador=0;
+    cajitaImg=document.querySelector(".slide-img");
+    sig=document.querySelector(".botonsig");
+    ant=document.querySelector(".botonanterior");
+    sig.addEventListener("click",
+        function(){
+            contador++;
+            cajitaImg.setAttribute("src", arreglo[contador]);
+        if(contador==arreglo.length-1){
+            sig.style.display="none";
+        }
+        if(contador>0){
+            cajitaImg.setAttribute("src",arreglo[contador]);
+            ant.style.display="block";
+        }
+        }
+    );    
+    ant.addEventListener("click",
+        function(){
+            contador--;
+            cajitaImg.setAttribute("src", arreglo[contador]);
+        if(contador==arreglo.length-1){
+         
+            sig.style.display="block";
+        }
+
+        if(contador<1){
+            cajitaImg.setAttribute("src",arreglo[contador]);
+            ant.style.display="none";
+            sig.style.display="block";
+        }
+        }    
+    );
+</script>    
+</body>
+</html>
